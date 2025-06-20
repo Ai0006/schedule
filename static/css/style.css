@@ -1,0 +1,179 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6ffe6; /* 薄い緑 */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #2e8b57; /* シーグリーン */
+}
+
+#calendar-view {
+    background-color: #f0fff0; /* ハニーデュー */
+    border: 1px solid #98fb98; /* ペールグリーン */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+form {
+    background-color: #fafffa; /* ミントクリーム */
+    padding: 20px;
+    border: 1px solid #8fbc8f; /* ダークシーグリーン */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2f4f4f; /* ダークスレートグレー */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"],
+textarea {
+    width: calc(100% - 22px); /* Padding and border consideration */
+    padding: 10px;
+    border: 1px solid #90ee90; /* ライトグリーン */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    background-color: #3cb371; /* ミディアムシーグリーン */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2e8b57; /* シーグリーン */
+}
+
+#message-area {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#message-area.success {
+    background-color: #d4edda; /* 薄い成功グリーン */
+    color: #155724; /* 濃い成功グリーン */
+    border: 1px solid #c3e6cb;
+}
+
+#message-area.error {
+    background-color: #f8d7da; /* 薄いエラーレッド */
+    color: #721c24; /* 濃いエラーレッド */
+    border: 1px solid #f5c6cb;
+}
+
+#message-area.info {
+    background-color: #e2f3fb; /* 薄い情報ブルー */
+    color: #0c5460;    /* 濃い情報ブルー */
+    border: 1px solid #b8daff;
+}
+
+
+/* FullCalendarのコンテナスタイル調整 */
+#interactive-calendar {
+    background-color: #fafffa; /* ミントクリーム、フォーム背景と合わせる */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #8fbc8f; /* ダークシーグリーン、フォーム枠線と合わせる */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* FullCalendarのヘッダーボタンなど */
+.fc-button {
+    background-color: #3cb371 !important; /* ミディアムシーグリーン */
+    border-color: #3cb371 !important;
+    color: white !important;
+}
+.fc-button:hover {
+    background-color: #2e8b57 !important; /* シーグリーン */
+}
+.fc-button-primary:disabled {
+    background-color: #90ee90 !important; /* ライトグリーン */
+    border-color: #90ee90 !important;
+}
+.fc-today-button {
+    background-color: #66cdaa !important; /* ミディアムアクアマリン */
+}
+.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button {
+    /* 必要に応じて個別のボタンスタイル */
+}
+.fc-event {
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+
+/* 予約確認エリアのスタイル */
+#confirmation-area {
+    background-color: #f0fff0; /* ハニーデュー */
+    border: 1px solid #98fb98; /* ペールグリーン */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#confirmation-area h3 {
+    color: #2e8b57; /* シーグリーン */
+    margin-top: 0;
+}
+
+#confirmation-details p {
+    margin: 8px 0;
+    font-size: 1.05em;
+}
+
+#confirmation-details strong {
+    color: #2f4f4f; /* ダークスレートグレー */
+}
+
+/* 既存の予約リスト関連のスタイルは app.js から削除されたため、不要であれば削除可能 */
+/* #reservations-list は FullCalendar に置き換えられたためコメントアウトまたは削除 */
+/*
+#reservations-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#reservations-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+*/

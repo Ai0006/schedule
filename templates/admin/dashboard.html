@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者ダッシュボード</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>管理者ダッシュボード</h1>
+        <button id="logout-button">ログアウト</button>
+    </header>
+    <main>
+        <div style="margin-bottom: 20px;">
+            <a href="{{ url_for('new_reservation_page') }}" class="button-like">新規予約作成</a>
+        </div>
+        <h2>予約一覧</h2>
+        <div class="table-container">
+            <table id="reservations-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>申請団体名</th>
+                        <th>公園名</th> <!-- Corrected: Removed duplicate, ensured Park Name Header -->
+                        <th>利用開始日時</th>
+                        <th>利用終了日時</th>
+                        <th>目的</th>
+                        <th>人数</th>
+                        <th>連絡先</th>
+                        <th>ステータス</th>
+                        <th>申請日時</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 予約データはJavaScriptでここに挿入されます -->
+                </tbody>
+            </table>
+        </div>
+
+        <hr style="margin-top: 40px; margin-bottom: 40px;">
+
+        <h2>公園管理</h2>
+        <div id="park-management-area">
+            <form id="add-park-form" style="margin-bottom: 15px;">
+                <input type="text" id="new-park-name" placeholder="新しい公園名" required style="padding: 8px; margin-right: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <button type="submit" class="button-like" style="background-color: #28a745;">この公園を追加</button>
+            </form>
+            <div id="park-message-area" style="margin-bottom: 10px;"></div>
+            <table id="parks-table" style="width: 100%; border-collapse: collapse; margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th style="padding: 10px; border: 1px solid #ddd; background-color: #f0f0f0; text-align:left;">ID</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; background-color: #f0f0f0; text-align:left;">公園名</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; background-color: #f0f0f0; text-align:left; width: 150px;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JavaScriptで公園データをここに挿入 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 編集用モーダル (初期非表示) -->
+        <div id="edit-park-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-button" id="close-edit-park-modal">&times;</span>
+                <h3>公園名を編集</h3>
+                <input type="hidden" id="edit-park-id">
+                <label for="edit-park-name-input" style="display:block; margin-bottom:5px;">公園名:</label>
+                <input type="text" id="edit-park-name-input" required style="margin-bottom:15px; width: calc(100% - 22px); padding:10px; border: 1px solid #ccc; border-radius:4px;">
+                <button id="save-edited-park" type="button" class="button-like" style="background-color:#007bff; margin-right:5px;">保存する</button>
+                <button id="cancel-edit-park" type="button" class="button-like" style="background-color:#6c757d;">キャンセル</button>
+                <div id="edit-park-modal-message-area" style="margin-top:15px;"></div>
+            </div>
+        </div>
+        <div id="modal-overlay" style="display:none;"></div>
+
+    </main>
+    <script src="{{ url_for('static', filename='js/admin_app.js') }}"></script>
+</body>
+</html>

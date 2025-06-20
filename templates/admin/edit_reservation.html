@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約編集/作成</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_style.css') }}">
+</head>
+<body>
+    <header>
+        <!-- reservation_id があれば編集、なければ新規作成と表示 -->
+        <h1>管理者: {% if reservation_id %}予約編集 (ID: {{ reservation_id }}) {% else %}新規予約作成{% endif %}</h1>
+        <a href="{{ url_for('admin_dashboard_page') }}" class="button-like header-button">ダッシュボードへ戻る</a>
+    </header>
+    <main>
+        <form id="edit-reservation-form">
+            <!-- 予約IDをフォームデータとして保持 (編集時のみ) -->
+            {% if reservation_id %}
+            <input type="hidden" id="reservation_id" name="reservation_id" value="{{ reservation_id }}">
+            {% endif %}
+
+            <div>
+                <label for="admin_park_name_select">公園名:</label>
+                <select id="admin_park_name_select" name="park_name" required> {/* name属性をpark_nameに変更 */}
+                    <option value="">公園を選択してください</option>
+                    {/* Options will be loaded by JavaScript */}
+                </select>
+                <input type="text" id="admin_park_name_other" name="park_name_other" placeholder="その他の公園名" style="display:none; margin-left: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; vertical-align: middle;">
+            </div>
+            <div>
+                <label for="start_datetime">利用開始日時:</label>
+                <input type="datetime-local" id="start_datetime" name="start_datetime" required>
+            </div>
+            <div>
+                <label for="end_datetime">利用終了日時:</label>
+                <input type="datetime-local" id="end_datetime" name="end_datetime" required>
+            </div>
+            <div>
+                <label>占用利用:</label>
+                <input type="radio" id="is_exclusive_true" name="is_exclusive" value="1" required> <label for="is_exclusive_true">あり</label>
+                <input type="radio" id="is_exclusive_false" name="is_exclusive" value="0" required> <label for="is_exclusive_false">なし</label>
+            </div>
+            <div>
+                <label for="purpose">利用目的:</label>
+                <textarea id="purpose" name="purpose" rows="3" required></textarea>
+            </div>
+            <div>
+                <label for="organization_name">お名前(団体名):</label>
+                <input type="text" id="organization_name" name="organization_name" required>
+            </div>
+            <div id="grade-field"> <!-- 管理画面では常に表示、またはJSで制御 -->
+                <label for="grade">学年:</label>
+                <input type="text" id="grade" name="grade">
+            </div>
+            <div>
+                <label for="number_of_people">人数:</label>
+                <input type="number" id="number_of_people" name="number_of_people" required min="1">
+            </div>
+            <div>
+                <label for="contact_info">連絡先 (電話番号またはメールアドレス):</label>
+                <input type="text" id="contact_info" name="contact_info" required>
+            </div>
+            <div>
+                <label for="status">ステータス:</label>
+                <select id="status" name="status" required>
+                    <option value="pending">申請中 (pending)</option>
+                    <option value="approved">承認済 (approved)</option>
+                    <option value="rejected">却下済 (rejected)</option>
+                    <option value="cancelled">キャンセル (cancelled)</option>
+                    <option value="cancelled_by_admin">管理者キャンセル (cancelled_by_admin)</option>
+                    <option value="completed">完了 (completed)</option>
+                </select>
+            </div>
+            <button type="submit" id="save-reservation-button">保存する</button>
+        </form>
+        <div id="edit-message-area" style="margin-top: 15px;"></div>
+    </main>
+    <!-- reservation_id をJSに渡す -->
+    <script>
+        const RESERVATION_ID = {{ reservation_id | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/admin_app.js') }}"></script>
+</body>
+</html>

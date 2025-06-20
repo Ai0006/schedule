@@ -1,0 +1,358 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Login Page Styles */
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#login-message-area {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#login-message-area.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#login-message-area.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Dashboard Page Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#logout-button {
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+.button-like { /* For <a> tags styled as buttons */
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white !important; /* Ensure text is white */
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px; /* Match other buttons */
+}
+.button-like:hover {
+    background-color: #0056b3;
+}
+
+.header-button { /* For buttons in the header of edit page */
+    background-color: #6c757d; /* Secondary color */
+}
+.header-button:hover {
+    background-color: #5a6268;
+}
+
+
+main {
+    padding: 20px;
+}
+
+main h2, main h1 { /* dashboard h2 and edit_reservation h1 */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Edit/Create Reservation Form Styles */
+#edit-reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#edit-reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#edit-reservation-form input[type="text"],
+#edit-reservation-form input[type="datetime-local"],
+#edit-reservation-form input[type="number"],
+#edit-reservation-form textarea,
+#edit-reservation-form select {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't expand width */
+}
+
+#edit-reservation-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+#edit-reservation-form input[type="radio"] {
+    margin-right: 5px;
+}
+#edit-reservation-form input[type="radio"] + label { /* Label next to radio */
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 15px;
+    margin-bottom: 15px; /* Align with other field spacing */
+}
+
+
+#edit-reservation-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Green for save */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#edit-reservation-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+#edit-message-area {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+#edit-message-area.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+#edit-message-area.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#park-message-area.success, #edit-park-modal-message-area.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+}
+#park-message-area.error, #edit-park-modal-message-area.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+
+.table-container {
+    overflow-x: auto; /* Responsive table */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#reservations-table, #parks-table { /* Apply common styles to both tables */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#reservations-table th, #reservations-table td,
+#parks-table th, #parks-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+}
+
+#reservations-table thead th,
+#parks-table thead th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #555;
+}
+
+#reservations-table tbody tr:nth-child(even),
+#parks-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#reservations-table tbody tr:hover,
+#parks-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Specific button styles for reservation table, can be generalized if needed */
+#reservations-table .action-buttons button,
+#parks-table .action-buttons button { /* Generalize for all action buttons */
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    color: white; /* Default for colored buttons */
+}
+
+#reservations-table .approve-button, #parks-table .approve-button { /* If parks need approve */
+    background-color: #28a745;
+}
+#reservations-table .approve-button:hover, #parks-table .approve-button:hover {
+    background-color: #218838;
+}
+
+#reservations-table .reject-button, #parks-table .reject-button { /* If parks need reject */
+    background-color: #ffc107;
+    color: #333; /* Text color for yellow button */
+}
+#reservations-table .reject-button:hover, #parks-table .reject-button:hover {
+    background-color: #e0a800;
+}
+
+#reservations-table .edit-button, #parks-table .edit-park-btn {
+    background-color: #17a2b8; /* Info blue */
+}
+#reservations-table .edit-button:hover, #parks-table .edit-park-btn:hover {
+    background-color: #138496;
+}
+
+#reservations-table .delete-button, #parks-table .delete-park-btn {
+    background-color: #dc3545; /* Danger red */
+}
+#reservations-table .delete-button:hover, #parks-table .delete-park-btn:hover {
+    background-color: #c82333;
+}
+#reservations-table .cancel-button, #parks-table .cancel-button { /* For user-initiated cancel */
+    background-color: #fd7e14; /* Orange */
+}
+#reservations-table .cancel-button:hover, #parks-table .cancel-button:hover {
+    background-color: #e66a0a;
+}
+#reservations-table .admin-cancel-button, #parks-table .admin-cancel-button { /* For admin-initiated cancel */
+    background-color: #6f42c1; /* Purple */
+}
+#reservations-table .admin-cancel-button:hover, #parks-table .admin-cancel-button:hover {
+    background-color: #5a32a3;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity for overlay effect */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 25px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Maximum width */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style for the (now redundant) overlay div if it were used separately */
+/* #modal-overlay (the one in HTML) is not styled here because .modal class now handles the overlay */
+
+/* Add more specific styles if needed */
