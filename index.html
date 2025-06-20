@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公園予約システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
+</head>
+<body>
+    <h1>公園予約</h1>
+
+    <div id="interactive-calendar" style="max-width: 700px; margin: 20px auto;"></div>
+
+    <h2>予約申し込みフォーム</h2>
+    <form id="reservation-form">
+        <div>
+            <label for="start_datetime">利用開始日時:</label>
+            <input type="datetime-local" id="start_datetime" name="start_datetime" required>
+        </div>
+        <div>
+            <label for="end_datetime">利用終了日時:</label>
+            <input type="datetime-local" id="end_datetime" name="end_datetime" required>
+        </div>
+        <div>
+            <label>占用利用:</label>
+            <input type="radio" id="is_exclusive_true" name="is_exclusive" value="1" required> <label for="is_exclusive_true">あり</label>
+            <input type="radio" id="is_exclusive_false" name="is_exclusive" value="0" checked required> <label for="is_exclusive_false">なし</label>
+        </div>
+        <div>
+            <label for="purpose">利用目的:</label>
+            <textarea id="purpose" name="purpose" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="organization_name">お名前(団体名):</label>
+            <input type="text" id="organization_name" name="organization_name" required>
+        </div>
+        <div id="grade-field" style="display:none;">
+            <label for="grade">学年:</label>
+            <input type="text" id="grade" name="grade">
+        </div>
+        <div>
+            <label for="number_of_people">人数:</label>
+            <input type="number" id="number_of_people" name="number_of_people" required min="1">
+        </div>
+        <div>
+            <label for="contact_info">連絡先 (電話番号またはメールアドレス):</label>
+            <input type="text" id="contact_info" name="contact_info" required>
+        </div>
+        <button type="submit">内容確認へ</button>
+    </form>
+
+    <div id="confirmation-area" style="display:none; border: 1px solid #ccc; padding: 15px; margin-top:15px; background-color: #f9f9f9;">
+        <h3>以下の内容で予約しますか？</h3>
+        <div id="confirmation-details" style="margin-bottom: 15px;"></div>
+        <button id="confirm-reservation" type="button" style="background-color: #28a745; color:white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;">この内容で確定する</button>
+        <button id="cancel-confirmation" type="button" style="background-color: #dc3545; color:white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">修正する</button>
+    </div>
+
+    <div id="message-area"></div>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js'></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
